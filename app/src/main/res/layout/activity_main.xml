@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/txtNhapttcn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập thông tin cá nhân"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:layout_marginTop="152dp"
+        android:layout_marginLeft="30dp"
+
+        />
+
+    <EditText
+        android:id="@+id/edtSdt"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/txtNhapttcn"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Nhập số điện thoại"
+        android:inputType="number"
+        android:textColorHint="#8E8E8E"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/edtSdt"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:hint="Nhập email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#8E8E8E"
+        android:textColor="@color/black"/>
+    <EditText
+        android:id="@+id/edtTen"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:hint="Nhập ten đầy đủ  "
+        android:textColorHint="#8E8E8E"
+        android:layout_below="@id/edtEmail"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/edtCoquan"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:hint="Nhập ten cơ quan"
+        android:textColorHint="#8E8E8E"
+        android:layout_below="@id/edtTen"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        />
+    <EditText
+        android:id="@+id/edtMatKhau"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:hint="Nhập mật khẩu"
+        android:textColorHint="#8E8E8E"
+        android:layout_below="@id/edtCoquan"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        />
+    <Button
+        android:id="@+id/btnTieptuc"
+        android:layout_width="327dp"
+        android:layout_height="48dp"
+        android:text="Tiếp tục"
+        android:layout_below="@+id/edtMatKhau"
+        android:layout_centerInParent="true"
+        android:layout_margin="5dp"
+        android:textColor="@color/black"
+        />
+    <TextView
+        android:id="@+id/edtError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF4E3D"
+        android:text="Vui lòng nhập lại"
+        android:layout_below="@+id/btnTieptuc"
+        android:visibility="gone"
+        />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
