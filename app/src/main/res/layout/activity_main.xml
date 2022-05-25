@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:src="@drawable/ic_back" />
+
+    </androidx.appcompat.widget.Toolbar>
     <TextView
         android:id="@+id/txtNhapttcn"
         android:layout_width="wrap_content"
@@ -28,10 +42,11 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/botron"
         android:hint="Nhập số điện thoại"
         android:inputType="number"
-        android:textColorHint="#8E8E8E"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textColorHint="#8E8E8E" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -46,7 +61,8 @@
         android:hint="Nhập email"
         android:inputType="textEmailAddress"
         android:textColorHint="#8E8E8E"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:background="@drawable/botron"/>
     <EditText
         android:id="@+id/edtTen"
         android:layout_width="327dp"
@@ -57,18 +73,23 @@
         android:layout_centerInParent="true"
         android:layout_margin="5dp"
         android:textColor="@color/black"
+        android:background="@drawable/botron"
         />
+
     <EditText
         android:id="@+id/edtCoquan"
         android:layout_width="327dp"
         android:layout_height="48dp"
-        android:hint="Nhập ten cơ quan"
-        android:textColorHint="#8E8E8E"
         android:layout_below="@id/edtTen"
         android:layout_centerInParent="true"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/botron"
+        android:hint="Nhập tên cơ quan"
         android:textColor="@color/black"
-        />
+        android:textColorHint="#8E8E8E" />
     <EditText
         android:id="@+id/edtMatKhau"
         android:layout_width="327dp"
@@ -79,6 +100,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="5dp"
         android:textColor="@color/black"
+        android:background="@drawable/botron"
         />
     <Button
         android:id="@+id/btnTieptuc"
@@ -89,38 +111,15 @@
         android:layout_centerInParent="true"
         android:layout_margin="5dp"
         android:textColor="@color/black"
+        android:background="@drawable/botron"
         />
     <TextView
         android:id="@+id/edtError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#FF4E3D"
-        android:text="Vui lòng nhập lại"
         android:layout_below="@+id/btnTieptuc"
-        android:visibility="gone"
         />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </RelativeLayout>

@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,33 +21,28 @@ public class MainActivity extends AppCompatActivity {
     EditText edtMatkhau;
     TextView edtError;
     Button btntieptuc;
-    String s;
+    String checkEmail = "",checkSDT= "",checkName= "",checkCoquan= "",checkPass= "";
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Anhxa();
+
         btntieptuc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                edtError.setText("");
-                if(edtPhone.getText().length()!=0
-                        &&edtEmail.getText().length()!=0
-                        &&edtTen.getText().length()!=0
-                        && edtCoquan.getText().length()!=0
-                        &&edtMatkhau.getText().length()!=0){
-                    validateEmail(edtEmail);
-                    validatePhone(edtPhone);
-                    validatePassword(edtMatkhau);
-
-
-                }else {
-                    edtError.setText("Vui lòng nhập đầy đủ thông tin\n");
-                    edtError.setVisibility(View.VISIBLE);
-                    s = edtError.getText().toString();
+                i = 0;
+                validatePhone(edtPhone);
+                validateEmail(edtEmail);
+                validateName(edtTen);
+                validateCoQuan(edtCoquan);
+                validatePassword(edtMatkhau);
+                edtError.setText(checkSDT+checkEmail+checkName+checkCoquan+checkPass);
+                if(i == 0){
+                    Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
@@ -61,35 +58,75 @@ public class MainActivity extends AppCompatActivity {
          btntieptuc =(Button) findViewById(R.id.btnTieptuc);
 
     }
-    public boolean validateEmail(EditText edtEmail){
+
+    public void validateEmail(EditText edtEmail){
         String emailInput = edtEmail.getText().toString();
-        if(Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()){
-            return  true;
-        }else{
-             s = s+ "Nhập sai email. Vui lòng nhập lại\n";
-            edtError.setText(s);
-            return false;
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(emailInput).matches() && emailInput.length()==0){
+            edtEmail.setBackground(getDrawable(R.drawable.botron));
+            checkEmail = "Email của bạn không đúng. Vui lòng nhập lại\n";
+            edtEmail.setBackground(getDrawable(R.drawable.botron_loi));
+            i = i+1;
+        }else {
+            checkEmail = " ";
+            edtEmail.setBackground(getDrawable(R.drawable.botron));
         }
 
     }
-    public boolean validatePhone(EditText edtPhone){
+    public void validateCoQuan(EditText edtCoquan){
+        String Input = edtCoquan.getText().toString();
+
+        if(Input.length()==0){
+            checkCoquan = "Cơ quan của bạn không đúng.Vui lòng nhập lại\n";
+            edtCoquan.setBackground(getDrawable(R.drawable.botron_loi));
+            i = i+1;
+        }else{
+            checkCoquan = " ";
+            edtCoquan.setBackground(getDrawable(R.drawable.botron));
+        }
+
+    }
+    public void validateName(EditText edtTen){
+        String Input = edtTen.getText().toString();
+
+        if(Input.length()==0){
+            checkName = "Tên của bạn không đúng.Vui lòng nhập lại\n";
+            edtTen.setBackground(getDrawable(R.drawable.botron_loi));
+            i = i+1;
+
+        }else{
+            checkName = " ";
+            edtTen.setBackground(getDrawable(R.drawable.botron));
+        }
+
+    }
+    public void validatePhone(EditText edtPhone){
         String phoneInput = edtPhone.getText().toString();
-        if(!phoneInput.matches("[0-9]{10}$")){
-            s = s + "Nhập sai số điện thoại.Vui lòng nhập lại\n";
-            edtError.setText(s);
-            return false;
+        String regex = "^0\\d{9}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneInput);
+        if(matcher.find()){
+
+            edtPhone.setBackground(getDrawable(R.drawable.botron));
+            checkSDT = " ";
+
+
         }else {
-            return true;
+            checkSDT = "Số điện thoại của bạn không đúng.Vui lòng nhập lại\n";
+            edtPhone.setBackground(getDrawable(R.drawable.botron_loi));
+            i = i+1;
         }
     }
-    public boolean validatePassword(EditText edtMatkhau){
+    public void validatePassword(EditText edtMatkhau){
         String MKInput = edtMatkhau.getText().toString();
         if(MKInput.length()<8){
-            s = s + "Mật khẩu của bạn quá ngắn.Vui lòng nhập lại\n";
-            edtError.setText(s);
-            return false;
+            checkPass = "Mật khẩu của bạn quá ngắn.Vui lòng nhập lại\n";
+            edtMatkhau.setBackground(getDrawable(R.drawable.botron_loi));
+            i = i+1;
+
         }else{
-            return true;
+            checkPass = " ";
+            edtMatkhau.setBackground(getDrawable(R.drawable.botron));
         }
     }
 
